@@ -10,14 +10,16 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from YamJam import yamjam
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+CFG = yamjam()['PyBrew']
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'bsm1gsspqbu07q9h(c*pd5h1l%9(-pz#vk#xn84huja1$^mkdz'
+SECRET_KEY = CFG['DjangoSecret']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -36,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -54,12 +57,17 @@ WSGI_APPLICATION = 'BrewSite.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
+DBCFG = CFG['database']
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+        'ENGINE': DBCFG['engine'],
+        'NAME': DBCFG['name'],
+        'USER': DBCFG['user'],
+        'PASSWORD': DBCFG['password'],
+        'HOST': DBCFG['host'],
+        'PORT': DBCFG['port'],
+        }
 }
 
 # Internationalization
