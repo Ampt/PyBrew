@@ -38,7 +38,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'BrewSite',
+    'BrewAPI',
+    'BrewDay',
     'rest_framework',
 )
 
@@ -53,7 +54,7 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'BrewSite.urls'
 
-WSGI_APPLICATION = 'BrewSite.wsgi.application'
+WSGI_APPLICATION = 'BrewAPI.wsgi.application'
 
 
 # Database

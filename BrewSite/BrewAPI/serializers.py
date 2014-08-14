@@ -1,6 +1,6 @@
 from django.forms import widgets
 from rest_framework import serializers
-from BrewSite.models import Brew
+from BrewAPI.models import Brew
 
 
 class BrewSerializer(serializers.ModelSerializer):
